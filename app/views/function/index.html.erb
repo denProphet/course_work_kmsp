@@ -1,0 +1,29 @@
+<!--chartkick-->
+<%#= line_chart @data, empty: "No data" %>
+
+<p style="color: black"><%= notice %></p>
+
+<h2>Теоретичні дані</h2>
+
+<%= line_chart @points, xtitle: "X", ytitle: "Y", min: 0, points: false, round: 7, colors: ["#03fc49"]%>
+<br>
+
+<h2>Метод Метрополіса</h2>
+<%= column_chart @points1, xtitle: "X", ytitle: "Y", min: 0, points: false, round: 7, colors: ["#b00"]%>
+<br>
+
+<h2>Метод Неймана</h2>
+<%= column_chart @points2, xtitle: "X", ytitle: "Y", min: 0, points: false, round: 7,colors: ["#239fa8"] %>
+<br>
+
+
+<h2>Порівняння</h2>
+  <%= scatter_chart [
+                      {name: "Метод Неймана", data: @points2 },
+                      {name: "Метод Метрополіса", data: @points1 }
+                    ], height:"500px", xtitle: 'k', ytitle: 'Pi / Pn'%>
+  <br>
+
+
+  <span class="btn btn-warning btn-lg"><%= link_to "Завантажити дані", test_path %></span>
+  <br>

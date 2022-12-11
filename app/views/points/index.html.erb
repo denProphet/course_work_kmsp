@@ -1,0 +1,12 @@
+<h1>Points</h1>
+
+<%= scatter_chart Point.pluck(:x, :y), xtitle: "X", ytitle: "Y" %>
+
+<% @points.each do |point| %>
+  <p>
+    x = <%= point.x %>
+    y = <%= point.y %>
+  </p>
+<% end %>
+
+<%= line_chart({"2021-01-01" => 2, "2021-01-02" => 3}) %>

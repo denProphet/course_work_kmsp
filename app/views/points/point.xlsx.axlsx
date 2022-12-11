@@ -1,0 +1,9 @@
+wb = xlsx_package.workbook
+
+wb.add_worksheet(name: "Result") do |sheet|
+    sheet.add_row ["X", "Y"]
+
+    points.each do |point|
+        sheet.add_row [point.x, point.y]
+    end
+end

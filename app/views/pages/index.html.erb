@@ -1,0 +1,19 @@
+
+
+<div class="card border-dark mb-5" style="width: 82rem;">
+  <div class="card-body">
+    <h2 class="card-title">Параметри генератора розподілу</h2>
+
+  <br>
+    <h6 class="card-text">Необхіодно зазначити, що параметри a,b - позитивні числа; статистичне значення n (кількість ітерацій алгоритмів
+генерації) також не може бути негативним</h6>
+<br>
+    <%= form_with url: function_path, method: "get", :class => 'form-group' do |f| %>
+      <%= f.number_field :a, :class =>"form-control", required: true, in: 0.0..Float::MAX, step: 0.01,  placeholder: "a" %> <br>
+      <%= f.number_field :b, :class =>"form-control", required: true, iin: 0.0..Float::MAX, step: 0.01,  placeholder: "b" %> <br>
+      <%= f.number_field :n, :class =>"form-control", required: true, in: 1..1000000, step: 1,  placeholder: "n" %> <br>
+      <%= f.submit "Обрати параметри", :class => "btn btn-warning btn-lg btn-block"  %>
+      
+  </div>
+</div>
+<% end %>
